@@ -1,6 +1,6 @@
 ## Ejercicio de evaluador de expresiones
 
-En este proyecto se presenta la solución de evaluación de expresiones que evalúa
+En este proyecto se presenta la solución de evaluación de expresiones que convierte
 expresiones en notación infija a notación postfija o Polaca inversa.
 [Ver documentación](https://runestone.academy/ns/books/published/pythoned/BasicDS/ExpresionesInfijasPrefijasYSufijas.html).
 
