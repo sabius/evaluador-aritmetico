@@ -1,18 +1,10 @@
-## Getting Started
+## Ejercicio de evaluador de expresiones
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+En este proyecto se presenta la solución de evaluación de expresiones que evalúa
+expresiones en notación infija a notación postfija o Polaca inversa.
+[Ver documentación](https://runestone.academy/ns/books/published/pythoned/BasicDS/ExpresionesInfijasPrefijasYSufijas.html).
 
-## Folder Structure
+## Ejecución del código
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Ejecutar el archivo App.java. Se solicitará ingresar una expresión aritmética
+del tipo `3*(5+4)` sin espacios y números de un sólo dígito.
