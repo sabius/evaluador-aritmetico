@@ -1,7 +1,25 @@
-import java.util.Scanner;
 import java.util.Stack;
 
 public class EvaluadorExpresiones {
+
+      // Método para verificar si los paréntesis están balanceados
+      public static boolean verificarParentesis(String expresion) {
+        // Utilizamos un Stack para seguir el patrón Last In First Out (LIFO)
+        // https://www.geeksforgeeks.org/stack-class-in-java/
+        Stack<Character> pila = new Stack<>();
+        // https://www.geeksforgeeks.org/java-string-tochararray-example/
+        for (char c : expresion.toCharArray()) {
+            if (c == '(') {
+                pila.push(c);
+            } else if (c == ')') {
+                if (pila.isEmpty() || pila.pop() != '(') {
+                    return false;
+                }
+            }
+        }
+  
+        return pila.isEmpty();
+      }
 
     // Método para obtener la precedencia de los operadores
     private static int precedencia(char operador) {
@@ -39,7 +57,7 @@ public class EvaluadorExpresiones {
         
         for (char c : expresion.toCharArray()) {
             if (Character.isDigit(c)) {
-                pila.push(c - '0'); // Convierte el char en número
+                pila.push(Character.getNumericValue(c)); // Convierte el char en número
             } else { // Es un operador
                 int b = pila.pop();
                 int a = pila.pop();
