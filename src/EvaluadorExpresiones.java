@@ -33,30 +33,20 @@ public class EvaluadorExpresiones {
     // Método para convertir una expresión infija a postfija
     public static String infijaAPostfija(String expresion) {
         StringBuilder resultado = new StringBuilder();
-        Stack<Character> pila = new Stack<>();
+        Stack<Character> pilaOperadores = new Stack<>();
         
         for (char c : expresion.toCharArray()) {
-            // Si es un número, se concatena para crear un número más grande
             if (Character.isDigit(c)) {
                 resultado.append(c);
-            } else if (c == '(') {
-                // Si encontramos un paréntesis, agregamos el número a la pila
-                pila.push(c);
-            } else if (c == ')') {
-                
-                while (!pila.isEmpty() && pila.peek() != '(') {
-                    resultado.append(pila.pop());
-                }
-                pila.pop(); // Elimina '('
             } else { // Es un operador
-                while (!pila.isEmpty() && precedencia(pila.peek()) >= precedencia(c)) {
-                    resultado.append(pila.pop());
+                while (!pilaOperadores.isEmpty() && precedencia(pilaOperadores.peek()) >= precedencia(c)) {
+                    resultado.append(pilaOperadores.pop());
                 }
-                pila.push(c);
+                pilaOperadores.push(c);
             }
         }
-        while (!pila.isEmpty()) {
-            resultado.append(pila.pop());
+        while (!pilaOperadores.isEmpty()) {
+            resultado.append(pilaOperadores.pop());
         }
         return resultado.toString();
     }
@@ -67,7 +57,7 @@ public class EvaluadorExpresiones {
         
         for (char c : expresion.toCharArray()) {
             if (Character.isDigit(c)) { // Si es un número
-              pila.push(Character.getNumericValue(c));
+              pila.push(Character.getNumericValue(c)); // Convierte el char en número
             } else { // Es un operador
                 int b = pila.pop();
                 int a = pila.pop();
